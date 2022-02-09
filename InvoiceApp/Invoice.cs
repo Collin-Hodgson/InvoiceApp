@@ -5,8 +5,8 @@ namespace InvoiceApp
 {
     public class Invoice
     {
-        private string _partNumber;
-        private string _description;
+        public string _partNumber { get; set; }
+        public string _description { get; set; }
         private int _quantity;
         private decimal _price;
 
@@ -18,63 +18,39 @@ namespace InvoiceApp
             _price = price;
         }
 
-        public string GetPartNumber()
+        public int Quantity
         {
-            return _partNumber;
-        }
-
-        public void SetPartNumber(string partNumber)
-        {
-            _partNumber = partNumber;
-        }
-
-        public string GetDescription()
-        {
-            return _description;
-        }
-
-        public void SetDescription(string description)
-        {
-            _description = description;
-        }
-
-        public int GetQuantity()
-        {
-            return _quantity;
-        }
-
-        public void SetQuantity(int quantity)
-        {
-            if (quantity > 0)
+            get
             {
-                _quantity = quantity;
-            }
-            else
+                return _quantity;
+            } 
+            set
             {
-                _quantity = 1;
+                if (value > 0)
+                {
+                    _quantity = value;
+                }       
             }
         }
 
-        public decimal GetPrice()
+        public decimal Price
         {
-            return _price;
-        }
-
-        public void SetPrice(decimal price)
-        {
-            if(price > 0)
+            get
             {
-                _price = price;
+                return _price;
             }
-            else
+            set
             {
-                _price = 1;
+                if (value > 0.0m)
+                {
+                    _price = value;
+                } 
             }
         }
 
         public decimal GetInvoiceAmount()
         {
-            return _quantity * _price;
+            return _price * _quantity;
         }
 
     }
