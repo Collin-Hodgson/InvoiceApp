@@ -4,24 +4,31 @@ namespace InvoiceApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string partNumber;
-            string description;
-            int quantity;
-            decimal price;
+            Invoice Invoice = new Invoice();
+            
 
             Console.Write("Please enter the part number:");
-            partNumber = Console.ReadLine();
+            Invoice._partNumber = Console.ReadLine();
 
             Console.Write("Please enter the part description:");
-            description = Console.ReadLine();
+            Invoice._description = Console.ReadLine();
 
             Console.Write("Please enter the quantity of items:");
-            quantity = Convert.ToInt32(Console.ReadLine());
+            Invoice._quantity = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Please enter the price of the item:");
-            price = Convert.ToDecimal(Console.ReadLine());
+            Invoice._price = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("Invoice");
+            Console.WriteLine($"Part Number: ");
+            Console.WriteLine("Part Description: ");
+            Console.WriteLine("Quantity of item: ");
+            Console.WriteLine("Price of item: ");
+            Console.WriteLine(Invoice.GetInvoiceAmount());
         }
+
+
     }
 }

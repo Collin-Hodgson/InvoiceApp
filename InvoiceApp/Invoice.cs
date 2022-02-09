@@ -3,12 +3,12 @@
 
 namespace InvoiceApp
 {
-    public class Invoice
+    class Invoice
     {
-        private string _partNumber;
-        private string _description;
-        private int _quantity;
-        private decimal _price;
+        public string _partNumber;
+        public string _description;
+        public int _quantity;
+        public decimal _price;
 
         public Invoice(string partNumber, string description, int quantity, decimal price)
         {
@@ -49,6 +49,10 @@ namespace InvoiceApp
             {
                 _quantity = quantity;
             }
+            else
+            {
+                _quantity = 1;
+            }
         }
 
         public decimal GetPrice()
@@ -62,7 +66,15 @@ namespace InvoiceApp
             {
                 _price = price;
             }
+            else
+            {
+                _price = 1;
+            }
+        }
 
+        public decimal GetInvoiceAmount()
+        {
+            return _quantity * _price;
         }
 
     }
